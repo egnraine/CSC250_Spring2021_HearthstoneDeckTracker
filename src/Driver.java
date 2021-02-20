@@ -13,9 +13,8 @@ public class Driver
 		//System.out.println(hearthstoneURLReader.getTheURLContents());
 		Object obj = JSONValue.parse(hearthstoneURLReader.getTheURLContents());
 		HearthstoneCard[] theMinions = new HearthstoneCard[1924];
-	    theMinions[0] = new HearthstoneCard(name, cost, attack, defense);
-
-		
+		theMinions[0] = new HearthstoneCard (name, cost, attack, defense);
+	    		
 	    //System.out.println(obj instanceof JSONArray);
 	    if(obj instanceof JSONArray)
 	    {
@@ -35,13 +34,15 @@ public class Driver
 		    			int[] cost = (int[])cardData.get("cost");
 		    			int[] attack = (int[])cardData.get("attack");
 		    			int[] defense = (int[])cardData.get("health");
-
-		    			System.out.println(name);
-			    		System.out.println(cost);
-			    		System.out.println(attack);
-			    		System.out.println(defense);
+		    			
+		    			
+		    			/*
+		    			System.out.println(cardData.get("name"));
+			    		System.out.println(cardData.get("cost"));
+			    		System.out.println(cardData.get("attack"));
+			    		System.out.println(cardData.get("health"));
 			    		count++;
-			    		
+			    		*/
 		    		}
 		    		
 		    	}
