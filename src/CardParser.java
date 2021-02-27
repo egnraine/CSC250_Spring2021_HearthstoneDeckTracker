@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -52,24 +54,28 @@ public class CardParser
 		}
 	}
 	
-	public void sortLowestCostToHighestCost()
+	public void selectionSort()
 	{
-		temp = new ArrayList<HearthstoneCard>();
-		
-		for (int i = 0; i < theMinions.size(); i++)
+		for (int i = 0; i < this.theMinions.size() - 1; i++)
 		{
-			for (int j = i + 1; j < theMinions.size(); j++) 
+			int maxIndex = i;
+			for (int j = i + 1; j < this.theMinions.size(); j++)
 			{
-				if (this.theMinions.get(i).getCost() > this.theMinions.get(j).getCost())
+				if (theMinions.get(j).getCost() > theMinions.get(maxIndex).getCost())
 				{
-						temp.add(this.theMinions.get(j));
-						this.theMinions.remove(i);
-						theMinions = temp;
-						
-						this.theMinions.get(j).display();
-				}			
+					maxIndex = j;
+				}
+				
+			}
+			if (this.theMinions.get(maxIndex) != this.theMinions.get(i))
+			{
+				Collections.swap(theMinions, i, maxIndex);
 			}
 		}
+	}
+	
+	public void sortLowestCostToHighestCost()
+	{
 		//this methods job is to take our ArrayList of minions and re-arrange it so that
 		//it is in the order of cards with the lowest cost first, and cards with the highest
 		//cost last.
@@ -79,3 +85,4 @@ public class CardParser
 		
 	}
 }
+
