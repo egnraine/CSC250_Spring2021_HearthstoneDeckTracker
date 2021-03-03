@@ -1,10 +1,13 @@
+
 public class Driver 
 {
 
 	public static void main(String[] args)
 	{ 
 		CardParser cp = new CardParser("https://api.hearthstonejson.com/v1/25770/enUS/cards.json");
-		cp.selectionSort();
-		cp.showMinions();
+		//cp.showMinions();
+		//cp.selectionSortHighestCostToLowestCost();
+		//cp.showMinions();
+		cp.binarySearch(5);
 	}
 }
